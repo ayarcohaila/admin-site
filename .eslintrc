@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "plugin:prettier/recommended"
+  ],
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "strict": 0,
+    "no-undef": "error",
+    "react/jsx-no-undef": "error"
+  }
+}
