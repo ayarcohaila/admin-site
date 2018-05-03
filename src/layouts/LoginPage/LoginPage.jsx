@@ -39,7 +39,7 @@ class LoginPage extends Component {
     this.setState({
       [fieldName]: {
         ...this.state[fieldName],
-        error: this.state[fieldName].value ? null : "This field is required"
+        error: this.state[fieldName].value ? null : fieldName + " is required"
       }
     });
     return !!this.state[fieldName].value;
@@ -52,12 +52,22 @@ class LoginPage extends Component {
   };
 
   handleChange = fieldName => evt => {
-    this.setState({
-      [fieldName]: {
-        ...this.state[fieldName],
-        value: evt.target.value
-      }
-    });
+    if (evt.target.value !== "") {
+      this.setState({
+        [fieldName]: {
+          ...this.state[fieldName],
+          value: evt.target.value,
+          error: null
+        }
+      });
+    } else {
+      this.setState({
+        [fieldName]: {
+          ...this.state[fieldName],
+          value: evt.target.value
+        }
+      });
+    }
   };
 
   handleSubmit = e => {
