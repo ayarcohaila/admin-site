@@ -8,7 +8,7 @@ export class BaseService {
       body: JSON.stringify(body)
     };
 
-    return fetch(`${BASE_URL}/Sessions/Initialize`, requestOptions)
+    return fetch(`${BASE_URL}/${url}`, requestOptions)
       .then(response => {
         return response.json().then(json => ({ json, response }));
       })

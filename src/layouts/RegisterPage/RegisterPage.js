@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { userActions } from "../_actions";
+import { registerActions } from "../../_actions";
 import Card from "components/Card/Card.jsx";
 import {
   Button,
@@ -194,3 +194,13 @@ class RegisterPage extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  const { registerLoading } = state.registration;
+  return {
+    registerLoading
+  };
+};
+
+const connectRegisterPage = connect(mapStateToProps)(RegisterPage);
+export { connectRegisterPage as RegisterPage };

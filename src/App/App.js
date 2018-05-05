@@ -7,6 +7,7 @@ import { notifications } from "../_helpers/notifications";
 
 import { history } from "../_helpers";
 import authenticatedRoutes from "../routes/authenticatedRoutes";
+import registerRoutes from "../routes/registerRoutes";
 import guestRoutes from "../routes/guestRoutes";
 
 class App extends React.Component {
@@ -19,10 +20,13 @@ class App extends React.Component {
     return (
       <div>
         <Router history={history}>
-          <Route
-            path="/"
-            render={loggedIn ? authenticatedRoutes : guestRoutes}
-          />
+          <div>
+            <Route
+              path="/"
+              render={loggedIn ? authenticatedRoutes : guestRoutes}
+            />
+            <Route exact path="/register" render={registerRoutes} />
+          </div>
         </Router>
         <NotificationSystem ref="notificationSystem" />
       </div>
